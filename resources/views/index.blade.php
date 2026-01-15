@@ -7,7 +7,7 @@
 <!-- <div>
     @if(count($tasks))
         @foreach($tasks as $task)
-            <div>{{$task->title}}</div>
+            <div>{{$task->title}}</div
         @endforeach
     @else
         <div>There are no tasks!</div>
