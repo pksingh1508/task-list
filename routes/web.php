@@ -11,9 +11,11 @@ Route::get('/', function() {
     return redirect()->route('tasks.index');
 });
 
+// use all() -> to return all data from the model or see docs in database query builder in laravel
+// use latest() -> to return data ordered by created_at descending
 Route::get('/tasks', function () {
     return view('index', [
-        "tasks" => \App\Models\Task::all()
+        "tasks" => \App\Models\Task::latest()->get()
     ]);
 })->name('tasks.index');
 
