@@ -12,9 +12,10 @@
 @endsection
 
 @section('content')
-    <form method="POST" action="{{ route('tasks.update', ['id' => $task->id]) }}">
+    <form method="POST" action="{{ route('tasks.update', ['task' => $task->id]) }}">
         {{-- csrf => Cross Site Request Forgery --}}
         @csrf
+        {{-- this is called method spoofing --}}
         @method('PUT')
         <div>
             <label for="title">Title</label>
@@ -39,7 +40,7 @@
         </div>
 
         <div>
-            <button type="submit">Submit</button>
+            <button type="submit">Update</button>
         </div>
     </form>
 
