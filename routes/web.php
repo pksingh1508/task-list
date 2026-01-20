@@ -16,9 +16,10 @@ Route::get('/', function() {
 // use all() -> to return all data from the model or see docs in database query builder in laravel
 // use latest() -> to return data ordered by created_at descending
 // we can also use clauses like -> where('completed', false) to filter data
+// paginate() => return the paginated data, pass the number of how many data is returned.
 Route::get('/tasks', function () {
     return view('index', [
-        "tasks" => Task::latest()->get()
+        "tasks" => Task::latest()->paginate(10)
     ]);
 })->name('tasks.index');
 
@@ -78,7 +79,12 @@ Route::delete('/task/{task}', function(Task $task) {
     $task->delete();
     return redirect()->route('tasks.index')
         ->with('success', 'Task Deleted Successfully');
-})->name('tasks.destroy'); 
+})->name('tasks.destroy');
+
+Route::put('/task/{task}/toggle-complete', function(Task $task) {
+    $task->toggleComplete();
+    return redirect()->back()->with('success', 'Task updated Successfully');
+})->name('tasks.toggle-complete');
 
 // Route::get('/hello', function() {
 //     return "This is hello page";
