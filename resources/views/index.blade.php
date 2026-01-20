@@ -6,7 +6,7 @@
 {{-- Add task button --}}
 <nav class="mb-4">
     <a href="{{ route('tasks.create') }}" 
-    class="font-medium text-gray-700 underline decoration-pink-500">Add New Task!</a>
+    class="btn">Add New Task!</a>
 </nav>
 <!-- Using if and foreach -->
 <!-- <div>

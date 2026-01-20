@@ -19,7 +19,7 @@ Route::get('/', function() {
 // paginate() => return the paginated data, pass the number of how many data is returned.
 Route::get('/tasks', function () {
     return view('index', [
-        "tasks" => Task::latest()->paginate(10)
+        "tasks" => Task::latest()->paginate()
     ]);
 })->name('tasks.index');
 
