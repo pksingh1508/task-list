@@ -27,11 +27,11 @@
                 @endif
             </div>
             <div class="flex-1">
-                <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-100 @if($task->completed) line-through decoration-indigo-500/50 opacity-60 @endif">{{ $task->title }}</h2>
-                <p class="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">{{ $task->description }}</p>
+                <h2 class="text-2xl font-bold text-slate-800 @if($task->completed) line-through decoration-indigo-500/50 opacity-60 @endif">{{ $task->title }}</h2>
+                <p class="mt-3 text-slate-700 leading-relaxed">{{ $task->description }}</p>
                 @if ($task->long_description)
-                    <div class="mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600/50">
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">{{ $task->long_description }}</p>
+                    <div class="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <p class="text-slate-600 leading-relaxed">{{ $task->long_description }}</p>
                     </div>
                 @endif
             </div>
@@ -39,7 +39,7 @@
 
         <div class="flex flex-wrap gap-4 mb-8">
             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium
-                @if($task->completed) bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 @else bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 @endif">
+                @if($task->completed) bg-emerald-100 text-emerald-700 @else bg-amber-100 text-amber-700 @endif">
                 @if($task->completed)
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -52,13 +52,13 @@
                     Not Completed
                 @endif
             </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-400">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 text-slate-600">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Created {{ $task->created_at->diffForHumans() }}
             </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-400">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 text-slate-600">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
                 </svg>
